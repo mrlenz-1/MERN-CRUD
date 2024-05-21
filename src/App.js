@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+//import Button from 'react-bootstrap/Button';
+import { Route, Routes } from 'react-router-dom';
+import Library from './components/library/library';
+import Header from './components/header/header';
+import NotFound from './components/notfound/notfound';
+import PostBook from './components/postBook/postBook';
+import UpdateBook from './components/updateBook/updateBook';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Header></Header>
+    <Routes>
+      <Route path="/" element={<Library></Library>}></Route>
+      <Route path="*" element={<NotFound></NotFound>}></Route>
+      <Route path="/book" element={<PostBook></PostBook>}></Route>
+      <Route path="/book/:id" element={<UpdateBook></UpdateBook>}></Route>
+    </Routes>
+    </>
   );
 }
 
